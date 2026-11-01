@@ -7,11 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # خطوة ذكية لتغيير اسم البرنامج تلقائياً قبل بناء الـ APK
       - name: Change App Title
         run: |
           buildozer init
-          sed -i 's/title = My Application/title = The Praise App the first saif android app/g' buildozer.spec
+          sed -i 's/title = My Application/title = The Praise App by Saif/g' buildozer.spec
 
       - name: Build APK with Buildozer
         uses: ArtemSsh/buildozer-action@v1
