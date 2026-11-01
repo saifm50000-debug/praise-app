@@ -7,17 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Change App Title
-        run: |
-          buildozer init
-          sed -i 's/title = My Application/title = The Praise App by Saif/g' buildozer.spec
-
       - name: Build APK with Buildozer
         uses: ArtemSsh/buildozer-action@v1
         with:
           buildozer_version: stable
           command: android debug
-          
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v3
         with:
